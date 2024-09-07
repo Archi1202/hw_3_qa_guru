@@ -19,7 +19,7 @@ public class StudentRegistrationFormTests {
     @Test
     void FillAllFieldsTest(){
 
-        //Including String variable for some of the fields in the Form
+        // String variables for some of the fields in the Form
 
         String firstName = "Anuar";
         String lastName = "Zh";
@@ -29,50 +29,47 @@ public class StudentRegistrationFormTests {
         String state = "Uttar Pradesh";
         String city = "Agra";
 
-        open("/automation-practice-form"); //open the Student Registration Form
+        open("/automation-practice-form"); //Open the Student Registration Form
 
         $("#firstName").setValue(firstName); // Insert name Anuar
         $("#lastName").setValue(lastName); // Insert LastName Zh
-        $("#userEmail").setValue(userEmail); //Including student's email address
+        $("#userEmail").setValue(userEmail); //Insert student's email address
 
         $("#genterWrapper")
-                .$$("label").findBy(text("Male")).click(); // find and click on the "Male" inside of labels in the Gender section
+                .$$("label").findBy(text("Male")).click(); // Find and click on the radio button near to the "Male" option inside of labels in the Gender section
 
-        $("#userNumber").setValue(userNumber); // insert phone number in the relevant section
+        $("#userNumber").setValue(userNumber); // Insert phone number in the relevant section
 
-        $("#dateOfBirthInput").click();         // Openning the DatePicker
+        $("#dateOfBirthInput").click();         // Open the DatePicker
             $(".react-datepicker__year-select")
-                    .selectOptionByValue("1994"); // Setting the Year - 1994
+                    .selectOptionByValue("1994"); // Set the Year - 1994
             $(".react-datepicker__month-select")
-                    .selectOptionByValue("2"); // Setting the month - March
-        $$(".react-datepicker__day--010")
-                .find(Condition.text("10")).click(); // Setting the Day - 10th
+                    .selectOptionByValue("2"); // Set the month - March
+            $$(".react-datepicker__day--010")
+                .find(Condition.text("10")).click(); // Set the Day - 10th
 
-        $("#subjectsInput").setValue("English"); // Including the subject English
-        $(".subjects-auto-complete__menu").shouldBe(visible); // Wait until the AutoComplete menu will be visible
+        $("#subjectsInput").setValue("English"); // Include the subject English into the field
             $$(".subjects-auto-complete__option").find(Condition.text("English")).click(); // Select "English from the AutoComplete list
 
+        $("#hobbiesWrapper").
+                $$("label").findBy(text("Reading")).click(); // Find and click on the "Reading" inside of labels in the Hobbies section
 
-        $("#hobbiesWrapper")
-                .$$("label").findBy(text("Reading")).click(); // find and click on the "Reading" inside of labels in the Hobbies section
+        $("#uploadPicture").uploadFromClasspath("student_image.png"); // Upload picture from the resources folder inside the project
 
-        $("#uploadPicture").uploadFromClasspath("student_image.png"); // Uploading picture from the resources folder inside the project
-
-        $("#currentAddress").setValue(currentAddress); // inserting string value into the Current Address field
+        $("#currentAddress").setValue(currentAddress); // Insert string value into the Current Address field
 
         $("#stateCity-wrapper #state").click();
-                $$("div[id^='react-select-'][class*='option']")
-                .findBy(text(state)).click(); // Selecting the State Uttar Pradesh
+            $$("div[id^='react-select-'][class*='option']")
+                    .findBy(text(state)).click(); // Select the State Uttar Pradesh from the list
 
 
         $("#stateCity-wrapper #city").click();
-                $$("div[id^='react-select-'][class*='option']")
-                .findBy(text(city)).click(); // Selecting the city Agra
+            $$("div[id^='react-select-'][class*='option']")
+                    .findBy(text(city)).click(); // Select the city Agra from the list
 
-        $("#submit").click(); // Clicking on the Submit button
+        $("#submit").click(); // Click on the Submit button
 
         // Check that table is visible after clicking on Submit button
-
         $(".table-responsive").shouldBe(visible);
 
         //Verify that Final table has all required data, which student entered in the Form
