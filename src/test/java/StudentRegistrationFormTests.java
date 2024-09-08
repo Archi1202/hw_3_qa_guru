@@ -17,7 +17,7 @@ public class StudentRegistrationFormTests {
     }
 
     @Test
-    void FillAllFieldsTest(){
+    void fillAllFieldsTest(){
 
         // String variables for some of the fields in the Form
 
@@ -29,43 +29,41 @@ public class StudentRegistrationFormTests {
         String state = "Uttar Pradesh";
         String city = "Agra";
 
-        open("/automation-practice-form"); //Open the Student Registration Form
+        open("/automation-practice-form");
 
-        $("#firstName").setValue(firstName); // Insert name Anuar
-        $("#lastName").setValue(lastName); // Insert LastName Zh
-        $("#userEmail").setValue(userEmail); //Insert student's email address
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(userEmail);
 
         $("#genterWrapper")
-                .$$("label").findBy(text("Male")).click(); // Find and click on the radio button near to the "Male" option inside of labels in the Gender section
+                .$$("label").findBy(text("Male")).click();
 
-        $("#userNumber").setValue(userNumber); // Insert phone number in the relevant section
+        $("#userNumber").setValue(userNumber);
 
-        $("#dateOfBirthInput").click();         // Open the DatePicker
+        $("#dateOfBirthInput").click();
             $(".react-datepicker__year-select")
-                    .selectOptionByValue("1994"); // Set the Year - 1994
+                    .selectOptionByValue("1994");
             $(".react-datepicker__month-select")
-                    .selectOptionByValue("2"); // Set the month - March
+                    .selectOptionByValue("2");
             $$(".react-datepicker__day--010")
-                .find(Condition.text("10")).click(); // Set the Day - 10th
+                .find(Condition.text("10")).click();
 
-        $("#subjectsInput").setValue("English"); // Include the subject English into the field
-            $$(".subjects-auto-complete__option").find(Condition.text("English")).click(); // Select "English from the AutoComplete list
+        $("#subjectsInput").setValue("English");
+            $$(".subjects-auto-complete__option").find(Condition.text("English")).click();
 
         $("#hobbiesWrapper").
-                $$("label").findBy(text("Reading")).click(); // Find and click on the "Reading" inside of labels in the Hobbies section
+                $$("label").findBy(text("Reading")).click();
 
-        $("#uploadPicture").uploadFromClasspath("student_image.png"); // Upload picture from the resources folder inside the project
+        $("#uploadPicture").uploadFromClasspath("student_image.png");
 
-        $("#currentAddress").setValue(currentAddress); // Insert string value into the Current Address field
+        $("#currentAddress").setValue(currentAddress);
 
-        $("#stateCity-wrapper #state").click();
-            $$("div[id^='react-select-'][class*='option']")
-                    .findBy(text(state)).click(); // Select the State Uttar Pradesh from the list
+        $("#state").click();
+        $("#react-select-3-input").setValue(state);
 
 
-        $("#stateCity-wrapper #city").click();
-            $$("div[id^='react-select-'][class*='option']")
-                    .findBy(text(city)).click(); // Select the city Agra from the list
+        $("#city").click();
+        $("#react-select-4-input").setValue(city); // Select the city Agra from the list
 
         $("#submit").click(); // Click on the Submit button
 
