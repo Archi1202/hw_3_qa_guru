@@ -1,3 +1,5 @@
+package tests;
+
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
@@ -18,8 +20,6 @@ public class StudentRegistrationFormTests {
 
     @Test
     void fillAllFieldsTest(){
-
-        // String variables for some of the fields in the Form
 
         String firstName = "Anuar";
         String lastName = "Zh";
