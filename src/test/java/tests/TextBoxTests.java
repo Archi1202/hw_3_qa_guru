@@ -26,17 +26,17 @@ public class TextBoxTests extends TextBoxPage {
 
 
         textBoxPage.openPage()
-                .removeBanners()
-                .setUserName(fullName)
-                .setUserEmail(userEmail)
-                .setCurrentAddress(cuAddress)
-                .setPermanentAddress(peAddress)
-                .clickSubmit();
+                    .removeBanners()
+                    .setUserName(fullName)
+                    .setUserEmail(userEmail)
+                    .setCurrentAddress(cuAddress)
+                    .setPermanentAddress(peAddress)
+                    .clickSubmit();
 
         textBoxPage.checkTheTextBoxResult(fullName)
-                .checkTheTextBoxResult(userEmail)
-                .checkTheTextBoxResult(cuAddress)
-                .checkTheTextBoxResult(peAddress);
+                    .checkTheTextBoxResult(userEmail)
+                    .checkTheTextBoxResult(cuAddress)
+                    .checkTheTextBoxResult(peAddress);
     }
 
     @Test
@@ -46,9 +46,9 @@ public class TextBoxTests extends TextBoxPage {
 
 
         textBoxPage.openPage()
-                .removeBanners()
-                .setUserName(fullName)
-                .clickSubmit();
+                    .removeBanners()
+                    .setUserName(fullName)
+                    .clickSubmit();
 
         textBoxPage.checkTheTextBoxResult(fullName);
     }

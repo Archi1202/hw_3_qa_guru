@@ -34,31 +34,31 @@ public class RegistrationFormTestsWithPageObjects {
 
 
         registrationPage.openPage()
-                .removeBanners()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setUserEmail(userEmail)
-                .setGender(gender)
-                .setUserNumber(userNumber)
-                .setDateOfBirth("10","March","1994")
-                .setSubject(subject)
-                .setHobby(hobby)
-                .uploadPicture(pathToPicture)
-                .setCurrentAddress(currentAddress)
-                .setState(state)
-                .setCity(city)
-                .clickSubmitButton();
+                        .removeBanners()
+                        .setFirstName(firstName)
+                        .setLastName(lastName)
+                        .setUserEmail(userEmail)
+                        .setGender(gender)
+                        .setUserNumber(userNumber)
+                        .setDateOfBirth("10","March","1994")
+                        .setSubject(subject)
+                        .setHobby(hobby)
+                        .uploadPicture(pathToPicture)
+                        .setCurrentAddress(currentAddress)
+                        .setState(state)
+                        .setCity(city)
+                        .clickSubmitButton();
 
         registrationPage.checkResult("Student Name", firstName + " " + lastName)
-                .checkResult("Student Email", userEmail)
-                .checkResult("Gender", gender)
-                .checkResult("Mobile", userNumber)
-                .checkResult("Date of Birth", "10" + " " + "March" + "," + "1994")
-                .checkResult("Subjects", subject)
-                .checkResult("Hobbies", hobby)
-                .checkResult("Picture", pathToPicture)
-                .checkResult("Address", currentAddress)
-                .checkResult("State and City", state + " " + city);
+                        .checkResult("Student Email", userEmail)
+                        .checkResult("Gender", gender)
+                        .checkResult("Mobile", userNumber)
+                        .checkResult("Date of Birth", "10" + " " + "March" + "," + "1994")
+                        .checkResult("Subjects", subject)
+                        .checkResult("Hobbies", hobby)
+                        .checkResult("Picture", pathToPicture)
+                        .checkResult("Address", currentAddress)
+                        .checkResult("State and City", state + " " + city);
 
         System.out.println("Complete All Fields Test successfully passed!");
     }
@@ -74,20 +74,20 @@ public class RegistrationFormTestsWithPageObjects {
 
 
         registrationPage.openPage()
-                .removeBanners()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setUserEmail(userEmail)
-                .setGender(gender)
-                .setUserNumber(userNumber)
-                .setDateOfBirth("10","March","1994")
-                .clickSubmitButton();
+                        .removeBanners()
+                        .setFirstName(firstName)
+                        .setLastName(lastName)
+                        .setUserEmail(userEmail)
+                        .setGender(gender)
+                        .setUserNumber(userNumber)
+                        .setDateOfBirth("10","March","1994")
+                        .clickSubmitButton();
 
         registrationPage.checkResult("Student Name", firstName + " " + lastName)
-                .checkResult("Student Email", userEmail)
-                .checkResult("Gender", gender)
-                .checkResult("Mobile", userNumber)
-                .checkResult("Date of Birth", "10" + " " + "March" + "," + "1994");
+                        .checkResult("Student Email", userEmail)
+                        .checkResult("Gender", gender)
+                        .checkResult("Mobile", userNumber)
+                        .checkResult("Date of Birth", "10" + " " + "March" + "," + "1994");
 
         System.out.println("Complete Only Required Fields Test successfully passed!");
     }
@@ -101,11 +101,11 @@ public class RegistrationFormTestsWithPageObjects {
 
 
         registrationPage.openPage()
-                .removeBanners()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setGender(gender)
-                .clickSubmitButton();
+                        .removeBanners()
+                        .setFirstName(firstName)
+                        .setLastName(lastName)
+                        .setGender(gender)
+                        .clickSubmitButton();
 
         registrationPage.negativeVerificationOfResult();
 
