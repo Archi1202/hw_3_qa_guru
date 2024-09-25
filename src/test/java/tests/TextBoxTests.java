@@ -1,20 +1,11 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import page.TextBoxPage;
 
-public class TextBoxTests extends TextBoxPage {
+public class TextBoxTests extends TestBase{
 
     TextBoxPage textBoxPage = new TextBoxPage();
-
-    @BeforeAll
-    static void beforeAll(){
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
-    }
 
     @Test
     void fillAllFieldsInTextBoxTest(){
@@ -24,7 +15,6 @@ public class TextBoxTests extends TextBoxPage {
         String cuAddress = "Siegenburger Straße 45, 81373 Munich";
         String peAddress = "Verein für Bewegungsspiele Stuttgart 1893";
 
-
         textBoxPage.openPage()
                     .removeBanners()
                     .setUserName(fullName)
@@ -32,7 +22,6 @@ public class TextBoxTests extends TextBoxPage {
                     .setCurrentAddress(cuAddress)
                     .setPermanentAddress(peAddress)
                     .clickSubmit();
-
         textBoxPage.checkTheTextBoxResult(fullName)
                     .checkTheTextBoxResult(userEmail)
                     .checkTheTextBoxResult(cuAddress)
@@ -43,13 +32,10 @@ public class TextBoxTests extends TextBoxPage {
     void fillOnlyNameInTextBoxTest(){
 
         String fullName = "Alexander";
-
-
         textBoxPage.openPage()
                     .removeBanners()
                     .setUserName(fullName)
                     .clickSubmit();
-
         textBoxPage.checkTheTextBoxResult(fullName);
     }
 

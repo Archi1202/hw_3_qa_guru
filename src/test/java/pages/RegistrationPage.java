@@ -2,16 +2,14 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
-import pages.components.CityComponent;
 import pages.components.RegistrationResultTableComponent;
-import pages.components.StateComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
-    private SelenideElement firstNameInput = $("#firstName"),
+    private final SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             userEmailInput = $("#userEmail"),
             genderWrapper = $("#genterWrapper"),
@@ -27,10 +25,6 @@ public class RegistrationPage {
             resultTableLocator = $(".table-responsive");
 
     CalendarComponent calendarComponent = new CalendarComponent();
-
-    StateComponent stateComponent = new StateComponent();
-
-    CityComponent cityComponent = new CityComponent();
 
     RegistrationResultTableComponent resultTableComponent = new RegistrationResultTableComponent();
 
@@ -106,13 +100,13 @@ public class RegistrationPage {
 
     public RegistrationPage setState(String state){
         stateInput.click();
-        stateComponent.setState(state);
+        $("#stateCity-wrapper").$(byText(state)).click();;
         return this;
     }
 
     public RegistrationPage setCity(String city){
         cityInput.click();
-        cityComponent.setCity(city);
+        $("#stateCity-wrapper").$(byText(city)).click();;
         return this;
     }
 

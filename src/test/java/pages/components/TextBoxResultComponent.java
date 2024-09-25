@@ -7,9 +7,9 @@ import static com.codeborne.selenide.Condition.text;
 public class TextBoxResultComponent {
 
 
-    public void verifyResultTextBox(SelenideElement resultlocator, String value){
+    public void verifyResultTextBox(SelenideElement resultLocator, String value){
 
-        resultlocator.shouldHave(text(value));
+        resultLocator.shouldHave(text(value));
 
     }
 

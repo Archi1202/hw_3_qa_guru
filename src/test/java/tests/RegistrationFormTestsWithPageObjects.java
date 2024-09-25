@@ -1,19 +1,11 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-public class RegistrationFormTestsWithPageObjects {
+public class RegistrationFormTestsWithPageObjects extends TestBase{
 
 
-    @BeforeAll
-    static void beforeAll(){
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
-    }
 
     RegistrationPage registrationPage = new RegistrationPage();
 
@@ -31,8 +23,6 @@ public class RegistrationFormTestsWithPageObjects {
         String state = "Uttar Pradesh";
         String city = "Agra";
         String pathToPicture = "student_image.png";
-
-
         registrationPage.openPage()
                         .removeBanners()
                         .setFirstName(firstName)
@@ -48,7 +38,6 @@ public class RegistrationFormTestsWithPageObjects {
                         .setState(state)
                         .setCity(city)
                         .clickSubmitButton();
-
         registrationPage.checkResult("Student Name", firstName + " " + lastName)
                         .checkResult("Student Email", userEmail)
                         .checkResult("Gender", gender)
@@ -59,7 +48,6 @@ public class RegistrationFormTestsWithPageObjects {
                         .checkResult("Picture", pathToPicture)
                         .checkResult("Address", currentAddress)
                         .checkResult("State and City", state + " " + city);
-
         System.out.println("Complete All Fields Test successfully passed!");
     }
 
@@ -71,8 +59,6 @@ public class RegistrationFormTestsWithPageObjects {
         String gender = "Other";
         String userEmail = "TestAnuar@gmail.com";
         String userNumber = "9999999999";
-
-
         registrationPage.openPage()
                         .removeBanners()
                         .setFirstName(firstName)
@@ -82,13 +68,11 @@ public class RegistrationFormTestsWithPageObjects {
                         .setUserNumber(userNumber)
                         .setDateOfBirth("10","March","1994")
                         .clickSubmitButton();
-
         registrationPage.checkResult("Student Name", firstName + " " + lastName)
                         .checkResult("Student Email", userEmail)
                         .checkResult("Gender", gender)
                         .checkResult("Mobile", userNumber)
                         .checkResult("Date of Birth", "10" + " " + "March" + "," + "1994");
-
         System.out.println("Complete Only Required Fields Test successfully passed!");
     }
     @Test
@@ -98,17 +82,13 @@ public class RegistrationFormTestsWithPageObjects {
         String firstName = "AAA";
         String lastName = "BBB";
         String gender = "Other";
-
-
         registrationPage.openPage()
                         .removeBanners()
                         .setFirstName(firstName)
                         .setLastName(lastName)
                         .setGender(gender)
                         .clickSubmitButton();
-
         registrationPage.negativeVerificationOfResult();
-
         System.out.println("Result table is not displayed. Negative Test successfully passed!");
     }
 

@@ -1,21 +1,41 @@
 package tests;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
-public class StudentRegistrationFormTests {
+public class StudentRegistrationFormWithTestDataTests {
+
+    static String firstName;
+    static String lastName;
+    static String userEmail;
+
+
+    @BeforeAll
+    static void beforeAll(){
+        Configuration.browserSize = "1920x1080";
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.pageLoadStrategy = "eager";
+    }
+
+    @BeforeEach
+    void prepareTestData(){
+        firstName = "Anuar";
+        lastName = "Zh";
+        userEmail = "TestingTeam@qa.guru.com";
+
+    }
 
 
     @Test
     void fillAllFieldsTest(){
 
-        String firstName = "Anuar";
-        String lastName = "Zh";
-        String userEmail = "TestingTeam@qa.guru.com";
         String userNumber = "7777777777";
         String currentAddress = "Kazakhstan";
         String state = "Uttar Pradesh";
