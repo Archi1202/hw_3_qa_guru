@@ -1,8 +1,8 @@
 package page;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.components.TextBoxResultComponent;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxPage {
@@ -14,8 +14,6 @@ public class TextBoxPage {
             addressPermanentInput = $("#permanentAddress"),
             submitInput = $("button#submit"),
             resultTable = $("div#output");
-
-    TextBoxResultComponent textBoxResultComponent = new TextBoxResultComponent();
 
     public TextBoxPage openPage() {
         open("/text-box");
@@ -54,7 +52,7 @@ public class TextBoxPage {
     }
 
     public TextBoxPage checkTheTextBoxResult(String result){
-        textBoxResultComponent.verifyResultTextBox(resultTable, result);
+        resultTable.shouldHave(text(result));
         return this;
     }
 
