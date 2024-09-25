@@ -1,8 +1,6 @@
 package tests;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,27 +8,19 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
-public class StudentRegistrationFormWithTestDataTests {
+public class StudentRegistrationFormWithTestDataTests extends TestBase{
 
-    static String firstName;
-    static String lastName;
-    static String userEmail;
-
-
-    @BeforeAll
-    static void beforeAll(){
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
-    }
-
-    @BeforeEach
-    void prepareTestData(){
-        firstName = "Anuar";
-        lastName = "Zh";
-        userEmail = "TestingTeam@qa.guru.com";
-
-    }
+//    static String firstName;
+//    static String lastName;
+//    static String userEmail;
+//
+//    @BeforeEach
+//    void prepareTestData(){
+//        firstName = "Anuar";
+//        lastName = "Zh";
+//        userEmail = "TestingTeam@qa.guru.com";
+//
+//    }
 
 
     @Test
