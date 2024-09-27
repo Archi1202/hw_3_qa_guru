@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import tests.TestBase;
 
-public class RegistrationFormTestsWithPageObjects extends TestBase {
+public class RegistrationFormWithPageObjectsTests extends TestBase {
 
 
 
