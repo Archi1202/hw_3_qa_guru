@@ -1,10 +1,11 @@
-package tests;
+package tests.hw7;
 
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+import tests.TestBase;
 import utils.RandomUtils;
 
-public class RegistrationRandomTest extends TestBase{
+public class RegistrationRandomTest extends TestBase {
 
     RandomUtils random = new RandomUtils();
 
