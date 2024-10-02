@@ -1,0 +1,39 @@
+Test Cases for https://www.saucedemo.com/
+
+Test Case #1
+Verify that login process successfully works for valid standard_user and visual_user
+
+Steps:
+1) Open the URL https://www.saucedemo.com/
+2) Get data of login from @ValueSource and insert it into the Login field
+3) Insert password "secret_sauce" into the password field
+4) Click on the Login button
+----------------------
+Expected Result:
+New page opens with title "Swag Labs"
+
+
+Test Case #2
+Check that after invalid login with locked_out_user there is an error displayed on Login page
+
+Steps:
+1) Open the URL https://www.saucedemo.com/
+2) Get data of login from csv file in resources folder and insert it into the Login field
+3) Get data of password from csv file and insert into the password field
+4) Click on the Login button
+----------------------
+Expected Result:
+Error message displayed on Login page
+
+Test Case #3
+Check that user is able to open specific product from the list
+
+Steps:
+1) Open the URL https://www.saucedemo.com/
+2) Insert it into the Login field "standard_user"
+3) Write the password "secret_sauce" into the password field
+4) Click on the Login button
+5) Find the product from @CsvSource (Sauce Labs Backpack/Sauce Labs Bike Light) and click on it
+----------------------
+Expected Result:
+New page opens with Add to Cart button
