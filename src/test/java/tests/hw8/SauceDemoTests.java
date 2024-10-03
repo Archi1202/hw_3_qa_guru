@@ -47,7 +47,7 @@ public class SauceDemoTests extends TestBase {
     @CsvSource(value =
             {"standard_user, secret_sauce, Sauce Labs Backpack",
             "standard_user, secret_sauce, Sauce Labs Bike Light"})
-    @ParameterizedTest(name = "Check that user is able to open page of specific product {2} from the inventory list")
+    @ParameterizedTest(name = "Check that user is able to open specific product {2} from the inventory list")
     @Tag("SMOKE")
     void openProductItemTest(String userName,String password, String productName){
 

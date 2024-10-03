@@ -13,6 +13,7 @@ Expected Result:
 New page opens with title "Swag Labs"
 
 
+--------------------------------------------------------------------------------------------------------------
 Test Case #2
 Check that after invalid login with locked_out_user there is an error displayed on Login page
 
@@ -25,8 +26,10 @@ Steps:
 Expected Result:
 Error message displayed on Login page
 
+
+--------------------------------------------------------------------------------------------------------------
 Test Case #3
-Check that user is able to open specific product from the list
+Check that user is able to open specific product from the inventory list and see the add to cart button
 
 Steps:
 1) Open the URL https://www.saucedemo.com/
