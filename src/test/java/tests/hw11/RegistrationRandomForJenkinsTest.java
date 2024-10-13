@@ -51,7 +51,7 @@ public class RegistrationRandomForJenkinsTest {
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
-    @Tag("RegistrationForm")
+    @Tag("test1")
     @Severity(SeverityLevel.CRITICAL)
     @Link(value = "DemoQA Registration Form", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Completing All fields in the Form")
@@ -122,7 +122,7 @@ public class RegistrationRandomForJenkinsTest {
     }
 
     @Test
-    @Tag("RegistrationForm")
+    @Tag("test1")
     @Severity(SeverityLevel.CRITICAL)
     @Link(value = "DemoQA Registration Form", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Filling ONLY REQUIRED fields in the Form")
@@ -138,7 +138,7 @@ public class RegistrationRandomForJenkinsTest {
         String yearOfBirth = random.setYear();
         step("Open the Registration Form Page",() -> {
             registrationPage.openPage()
-                    .removeBanners();
+                            .removeBanners();
         });
         step("Fill the Firstname, Lastname, Email, Gender and Number fields", () -> {
             registrationPage.setFirstName(firstName)
@@ -163,7 +163,7 @@ public class RegistrationRandomForJenkinsTest {
         });
     }
     @Test
-    @Tag("RegistrationForm")
+    @Tag("test1")
     @Severity(SeverityLevel.CRITICAL)
     @Link(value = "DemoQA Registration Form", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Negative Test to check the result table DOESN'T displayed for user")
@@ -186,7 +186,8 @@ public class RegistrationRandomForJenkinsTest {
             registrationPage.clickSubmitButton();
         });
 
-        registrationPage.negativeVerificationOfResult();
+        step("Check that there is no result table for incomplete form" ,() -> {registrationPage.negativeVerificationOfResult();
+        });
     }
 
 }
