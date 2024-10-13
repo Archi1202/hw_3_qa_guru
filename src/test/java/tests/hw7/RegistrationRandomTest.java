@@ -5,6 +5,8 @@ import pages.RegistrationPage;
 import tests.TestBase;
 import utils.RandomUtils;
 
+
+
 public class RegistrationRandomTest extends TestBase {
 
     RandomUtils random = new RandomUtils();
