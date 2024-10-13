@@ -56,9 +56,6 @@ public class RegistrationRandomForJenkinsTest {
     @Link(value = "DemoQA Registration Form", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Completing All fields in the Form")
     void fillAllFieldsTest(){
-
-        SelenideLogger.addListener("allure", new AllureSelenide());
-
         String firstName = random.setFakeFirstName();
         String lastName = random.setFakeLastName();
         String gender = random.setGender();
@@ -100,11 +97,13 @@ public class RegistrationRandomForJenkinsTest {
             registrationPage.setCurrentAddress(currentAddress);
         });
         step("Select State and City from lists",() -> {
-            registrationPage.setState(state)
-                            .setCity(city);
+            registrationPage.removeBanners()
+                    .setState(state)
+                    .setCity(city);
         });
         step("Click on the Submit button",() -> {
-            registrationPage.clickSubmitButton();
+            registrationPage.removeBanners()
+                    .clickSubmitButton();
         });
 
         step("Check that included data for ALL Fields displayed in the result table", () -> {
@@ -136,6 +135,7 @@ public class RegistrationRandomForJenkinsTest {
         String dayOfBirth = random.setDay();
         String monthOfBirth = random.setMonth();
         String yearOfBirth = random.setYear();
+
         step("Open the Registration Form Page",() -> {
             registrationPage.openPage()
                             .removeBanners();
@@ -151,7 +151,8 @@ public class RegistrationRandomForJenkinsTest {
             registrationPage.setDateOfBirth(dayOfBirth,monthOfBirth,yearOfBirth);
         });
         step("Click on the Submit button", () -> {
-            registrationPage.clickSubmitButton();
+            registrationPage.removeBanners()
+                    .clickSubmitButton();
         });
 
         step("Check the inserted data with result table for required fields only", () -> {
@@ -183,7 +184,8 @@ public class RegistrationRandomForJenkinsTest {
                 .setGender(gender);
         });
         step("Click on the Submit button", () -> {
-            registrationPage.clickSubmitButton();
+            registrationPage.removeBanners()
+                    .clickSubmitButton();
         });
 
         step("Check that there is no result table for incomplete form" ,() -> {registrationPage.negativeVerificationOfResult();
