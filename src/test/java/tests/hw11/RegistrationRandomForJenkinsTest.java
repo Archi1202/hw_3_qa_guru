@@ -1,16 +1,12 @@
 package tests.hw11;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import helpers.Attach;
 import io.qameta.allure.*;
-import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.*;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+import tests.TestBase;
 import utils.RandomUtils;
-
-import java.util.Map;
 
 import static io.qameta.allure.Allure.step;
 
@@ -18,33 +14,7 @@ import static io.qameta.allure.Allure.step;
 @Owner("Anuar Zhangeldi")
 @DisplayName("Check the Registration Form via different scenarios by using Random data")
 
-public class RegistrationRandomForJenkinsTest {
-
-    @BeforeAll
-    static void beforeAll() {
-    Configuration.baseUrl = "https://demoqa.com";
-    Configuration.browserSize = "1920x1080";
-    Configuration.timeout = 10000;
-    Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-
-    DesiredCapabilities capabilities = new DesiredCapabilities();
-    capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-            "enableVNC", true,
-            "enableVideo", true
-    ));
-    Configuration.browserCapabilities = capabilities;
-
-    SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-}
-
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
-
-    }
+public class RegistrationRandomForJenkinsTest extends TestBase {
 
     RandomUtils random = new RandomUtils();
 
