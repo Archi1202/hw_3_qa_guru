@@ -16,14 +16,15 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll(){
+
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
 
-        Configuration.remote = System.getProperty("RemoteWebDriverURL");
+        Configuration.remote = "https://" + System.getProperty("LOGIN") + "@" + System.getProperty("REMOTE_URL");
         Configuration.timeout = 10000;
-        Configuration.browser = System.getProperty("browser");
-        Configuration.browserSize = System.getProperty("browserSize");
-        Configuration.browserVersion = System.getProperty("browserVersion");
+        Configuration.browser = System.getProperty("BROWSER_NAME","chrome");
+        Configuration.browserSize = System.getProperty("BROWSER_SIZE");
+        Configuration.browserVersion = System.getProperty("BROWSER_VERSION");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(

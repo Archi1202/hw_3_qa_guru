@@ -1,4 +1,4 @@
-package tests.hw11;
+package tests.hw12;
 
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
@@ -14,14 +14,14 @@ import static io.qameta.allure.Allure.step;
 @Owner("Anuar Zhangeldi")
 @DisplayName("Check the Registration Form via different scenarios by using Random data")
 
-public class RegistrationRandomForJenkinsTest extends TestBase {
+public class RegistrationRandomForJenkinsWithParamsTest extends TestBase {
 
     RandomUtils random = new RandomUtils();
 
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
-    @Tag("test11")
+    @Tag("test12")
     @Severity(SeverityLevel.CRITICAL)
     @Link(value = "DemoQA Registration Form", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Completing All fields in the Form")
@@ -91,7 +91,7 @@ public class RegistrationRandomForJenkinsTest extends TestBase {
     }
 
     @Test
-    @Tag("test11")
+    @Tag("test12")
     @Severity(SeverityLevel.CRITICAL)
     @Link(value = "DemoQA Registration Form", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Filling ONLY REQUIRED fields in the Form")
@@ -134,7 +134,7 @@ public class RegistrationRandomForJenkinsTest extends TestBase {
         });
     }
     @Test
-    @Tag("test11")
+    @Tag("test12")
     @Severity(SeverityLevel.CRITICAL)
     @Link(value = "DemoQA Registration Form", url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Negative Test to check the result table DOESN'T displayed for user")
