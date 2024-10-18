@@ -41,10 +41,6 @@ public class RegistrationRandomForJenkinsTest extends TestBase {
         String currentAddress = random.setFakeCurrentAddress();
         String state = random.setFakeState();
         String city = random.setFakeCity(state);
-        step("Open the Registration Form Page",() -> {
-            registrationPage.openPage()
-                    .removeBanners();
-        });
         step("Set Firstname, Lastname, Email, Gender and Number" ,() -> {
             registrationPage.setFirstName(firstName)
                     .setLastName(lastName)
@@ -106,10 +102,6 @@ public class RegistrationRandomForJenkinsTest extends TestBase {
         String monthOfBirth = random.setMonth();
         String yearOfBirth = random.setYear();
 
-        step("Open the Registration Form Page",() -> {
-            registrationPage.openPage()
-                            .removeBanners();
-        });
         step("Fill the Firstname, Lastname, Email, Gender and Number fields", () -> {
             registrationPage.setFirstName(firstName)
                 .setLastName(lastName)
@@ -144,10 +136,7 @@ public class RegistrationRandomForJenkinsTest extends TestBase {
         String firstName = random.setFakeFirstName();
         String lastName = random.setFakeLastName();
         String gender = random.setGender();
-        step("Open the Registration Form Page",() -> {
-            registrationPage.openPage()
-                    .removeBanners();
-        });
+
         step("Insert Firstname, Lastname and Gender data",() -> {
             registrationPage.setFirstName(firstName)
                 .setLastName(lastName)
