@@ -24,11 +24,11 @@ public class TestBase {
 
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.remote = "https://" + System.getProperty("LOGIN") + "@" + System.getProperty("REMOTE_URL");
+        Configuration.remote = "https://" + System.getProperty("login") + "@" + System.getProperty("remote");
         Configuration.timeout = 10000;
-        Configuration.browser = System.getProperty("BROWSER_NAME","chrome");
-        Configuration.browserSize = System.getProperty("BROWSER_SIZE");
-        Configuration.browserVersion = System.getProperty("BROWSER_VERSION");
+        Configuration.browser = System.getProperty("browserName","chrome");
+        Configuration.browserSize = System.getProperty("browserSize");
+        Configuration.browserVersion = System.getProperty("browserVersion");
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
