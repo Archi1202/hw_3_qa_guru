@@ -90,10 +90,11 @@ public class RegistrationPage {
         return this;
     }
 
-    public void uploadPicture(String pathToPicture){
+    public RegistrationPage uploadPicture(String pathToPicture){
         if (!Objects.equals(Configuration.browser, "firefox")) {
             pictureInput.scrollTo().uploadFromClasspath(pathToPicture);
         }
+        return this;
     }
 
     public RegistrationPage setCurrentAddress(String currentAddress){
