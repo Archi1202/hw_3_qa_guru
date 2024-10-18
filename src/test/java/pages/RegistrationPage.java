@@ -1,8 +1,11 @@
 package pages;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.RegistrationResultTableComponent;
+
+import java.util.Objects;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -87,9 +90,10 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage uploadPicture(String pathToPicture){
-        pictureInput.uploadFromClasspath(pathToPicture);
-        return this;
+    public void uploadPicture(String pathToPicture){
+        if (!Objects.equals(Configuration.browser, "firefox")) {
+            pictureInput.scrollTo().uploadFromClasspath(pathToPicture);
+        }
     }
 
     public RegistrationPage setCurrentAddress(String currentAddress){
