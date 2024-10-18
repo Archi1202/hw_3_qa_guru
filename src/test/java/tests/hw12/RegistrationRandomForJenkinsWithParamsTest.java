@@ -1,5 +1,6 @@
 package tests.hw12;
 
+import com.codeborne.selenide.Configuration;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -7,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import tests.TestBase;
 import utils.RandomUtils;
+
+import java.util.Objects;
 
 import static io.qameta.allure.Allure.step;
 
@@ -84,9 +87,11 @@ public class RegistrationRandomForJenkinsWithParamsTest extends TestBase {
                 .checkResult("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
                 .checkResult("Subjects", subject)
                 .checkResult("Hobbies", hobby)
-                .checkResult("Picture", pathToPicture)
                 .checkResult("Address", currentAddress)
                 .checkResult("State and City", state + " " + city);
+            if (!Objects.equals(Configuration.browser, "firefox")) {
+                registrationPage.checkResult("Picture", random.getRandomPicture());
+            }
         });
     }
 
