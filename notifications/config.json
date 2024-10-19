@@ -1,0 +1,17 @@
+{
+  "base": {
+    "project": "Anuar Registration Form Project",
+    "environment": "DEV",
+    "comment": "Running 3 scenarios for Registration Form page",
+    "reportLink": "",
+    "language": "en",
+    "messenger": "telegram",
+    "allureFolder": "https://jenkins.autotests.cloud/job/hw13_DemoQA_Registation_Form_Notifications/ws/allure-report/",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "8035823722:AAE-6IEagUy3Wh_3dGXGDsJ5UmzvMrrHupI",
+    "chat": "-1002279621856",
+    "replyTo": ""
+  }
+}
