@@ -61,3 +61,9 @@ task test12_test(type: Test) {
         includeTags("test12")
     }
 }
+
+task test13_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("test13")
+    }
+}
