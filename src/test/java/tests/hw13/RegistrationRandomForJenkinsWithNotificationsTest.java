@@ -90,7 +90,7 @@ public class RegistrationRandomForJenkinsWithNotificationsTest extends TestBase 
                 .checkResult("Address", currentAddress)
                 .checkResult("State and City", state + " " + city);
             if (!Objects.equals(Configuration.browser, "firefox")) {
-                registrationPage.checkResult("Picture", random.getRandomPicture());
+                registrationPage.checkResult("Picture", pathToPicture);
             }
         });
     }
